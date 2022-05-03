@@ -1,4 +1,3 @@
-import { mode } from "@chakra-ui/theme-tools";
 import fetcher from "./fetcher";
 
 export const auth = (
