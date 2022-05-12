@@ -1,15 +1,17 @@
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
 import GradientLayout from "../components/gradientLayout";
+import { useMe } from "../lib/hooks";
 import prisma from "../lib/prisma";
 
 const Home = ({ artists }) => {
+  const {user, isLoading} = useMe();
   return (
     <GradientLayout
       color="green"
       subtitle="profile"
-      title="Fabrizio Rizzi"
-      description="dsklajgd gasdgasdg sadgds"
+      title={!isLoading && `${user.firstName}${user.lastName}`}
+      description={!isLoading && `${user.playlistsCount} public playlists`}
       image="https://scontent.fmxp9-1.fna.fbcdn.net/v/t31.18172-8/21762528_10212275647258622_7881742562799919342_o.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=HtWdECmAivwAX9oJG2a&_nc_ht=scontent.fmxp9-1.fna&oh=00_AT-j4LKvP76jT7Vi4iQoYNA0plZbFJf-SnrGlj-FpiJMzg&oe=6293F935"
       roundImage
     >
